@@ -4,6 +4,13 @@
   if (!(window.console && window.console.log)) {
     return;
   }
+  var emojiMap = {
+    ':tada:': '🎉',
+    ':smile:': '😊',
+    ':rocket:': '🚀',
+    ':fire:': '🔥'
+    // Add more emojis as needed
+  };
 
   log = function() {
     var args;
@@ -59,6 +66,17 @@
       styles: function(match) {
         return [match[1], ''];
       }
+    },
+    {
+      // New emoji format
+      regex: /:([a-zA-Z0-9_-]+):/g,
+      replacer: function(m, p1) {
+        return emojiMap[`:${p1}:`] || m;
+      },
+      styles: function() {
+        return [];
+      }
+
     }
   ];
 

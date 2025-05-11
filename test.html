@@ -66,6 +66,11 @@ log.l('Expected:');
 log.l('%cred %cand %c[blue]', 'color: red', '', 'color: blue');
 log.l('Result:');
 log("[c=\"color:red\"]red[c] and [c=\'color:blue\'][blue][c]");
+
+testHeader();
+log('This is *italic* with :smile:'); // Outputs: This is italic with 😊
+log('Bold _text_ and :rocket:'); // Outputs: Bold text and 🚀
+log('Styled [c="color: red"]red[c] with :fire:'); // Outputs: red (in red) with 🔥
 </script>
 </head>
 <body>
